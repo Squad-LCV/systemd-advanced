@@ -1,4 +1,12 @@
-#/bin/bash
+#/bin/bash -xe
+
+
+if [ "$(whoami)" != "root" ]; then 
+	echo "Must be runned as root !!! Fuck off !!"
+	exit 666
+fi
+
+
 
 echo "Stop last test-script.sh"
 systemctl stop systemd.unit
