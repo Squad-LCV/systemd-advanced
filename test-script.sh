@@ -1,8 +1,9 @@
 #!/bin/bash
 
 
+LOGFILE=/tmp/$(basename $0).log
 function _print () {
-	echo "${@}" | sed "s/^/$(date) - /"
+	echo "${@}" | sed "s/^/$(date) - /" | tee -a $LOGFILE
 }
 
 
