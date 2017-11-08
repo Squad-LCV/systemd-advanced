@@ -2,8 +2,10 @@
 
 
 LOGFILE=/tmp/$(basename $0).log
+> $LOGFILE
+
 function _print () {
-echo 	echo "${@}" | sed "s/^/$(date) - /" | tee -a $LOGFILE
+	echo "${@}" | sed "s/^/$(date) - /" | tee -a $LOGFILE
 }
 
 trap '_print "SIGTERM received !" ; exit' TERM
