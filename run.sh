@@ -12,24 +12,24 @@ fi
 
 
 echo "Stop last test-script.sh"
-systemctl stop systemd.unit
+systemctl stop test-script.unit || :
 
 
 echo "Copy File test-script.sh to /tmp"
 cp test-script.sh /tmp
 
 
-echo "Copy systemd.unit file to /etc/systemd/system"
-cp test-script.unit /etc/systemd/system
+echo "Copy systemd.service file to /etc/systemd/system"
+cp test-script.service /etc/systemd/system/
 
 
 echo "Reload systemd config"
 systemctl daemon-reload 
 
 
-echo "Start last test-script.sh"
-systemctl start systemd.unit
+echo "Start test-script.sh"
+systemctl start test-script.service
 
 
-echo "Status last test-script.sh"
-systemctl status systemd.unit
+echo "Status test-script.sh"
+systemctl status test-script.service
