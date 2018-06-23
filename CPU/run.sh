@@ -12,7 +12,7 @@ fi
 
 
 echo "Stop last test-script.sh"
-systemctl stop test-script.unit || :
+systemctl stop test-script.unit && sleep 10 || :
 
 
 echo "Copy File test-script.sh to /tmp"
